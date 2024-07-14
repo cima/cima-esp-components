@@ -15,6 +15,9 @@
 
 namespace cima::system {
     class PWMDriver {
+        static Log LOG;
+        static bool fade_func_installed;
+
         ledc_channel_config_t ledc_channel;
         ledc_timer_config_t ledc_timer;
 
@@ -30,7 +33,7 @@ namespace cima::system {
 
     public:
         PWMDriver(gpio_num_t pwmGpioPin, ledc_channel_t channel, bool inverted = false);
-
+        static void init();
         void update(uint32_t dutyCycle);
     };
 }

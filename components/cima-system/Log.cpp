@@ -43,6 +43,19 @@ namespace cima::system {
         va_end(args);   
     }
 
+    void Log::warning(const char* format, ...) const {
+        char buffer [512];
+
+        va_list args;
+        va_start(args, format);
+   
+        vsnprintf(buffer, 511, format, args);
+
+        ESP_LOGW(loggerName.c_str(), "%s", buffer);
+
+        va_end(args);   
+    }
+
     void Log::error(const char* format, ...) const {
         char buffer [512];
 

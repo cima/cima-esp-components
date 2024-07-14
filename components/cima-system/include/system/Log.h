@@ -16,6 +16,7 @@ namespace cima::system {
         void init();
         void debug(const char* format, ...) const;
         void info(const char* format, ...) const;
+        void warning(const char* format, ...) const;
         void error(const char* format, ...) const;
     };
 }
